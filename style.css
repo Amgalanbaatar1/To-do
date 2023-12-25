@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(./2024.avif);
+  background-size: cover;
+  height: 100vh;
+}
+
+.lists {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 90px;
+
+  /* margin-top: 20%; */
+}
+
+.list {
+  border: 3px solid black;
+  border-radius: 12px;
+  width: 350px;
+  height: 100px;
+  padding: 10px;
+  background-color: rgb(120, 120, 120);
+}
+
+.add {
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: 300;
+  margin-top: 33px;
+  border-radius: 12px;
+  background-color: red;
+}
+
+.popup {
+  color: white;
+  border: 3px solid red;
+  border-radius: 13px;
+  width: 430px;
+  height: 555px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  /* display: none;
+ */
+}
+.title {
+  margin-top: 0;
+  font-weight: 300;
+}
+
+.input {
+  width: 16pc;
+  height: 20px;
+}
+
+.popup.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: #222;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50px;
+}
+
+.popup.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0, 7);
+  z-index: 1;
+  display: none;
+}
