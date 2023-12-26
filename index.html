@@ -10,45 +10,58 @@
   <body>
     <div class="containder">
       <h1 style="font-family: sans-serif; color: red; margin-left: 50px">To Do List</h1>
+      <h1><span id="date"></span></h1>
       <div class="lists">
         <div class="list">
-          <h2 style="margin: 0">Name</h2>
+          <h2 style="margin: 0">To Do</h2>
           <p style="margin: 0" id="demo"></p>
-          <button onclick="myFunction()" class="add">+ Add card</button>
+          <button onclick="showModal()" class="add">+ Add card</button>
         </div>
 
         <div class="list">
-          <h2 style="margin: 0">Name</h2>
+          <h2 style="margin: 0">In Progress</h2>
           <p style="margin: 0" id="demo"></p>
-          <button onclick="myFunction()" class="add">+ Add card</button>
+          <button onclick="showModal()" class="add">+ Add card</button>
         </div>
         <div class="list">
-          <h2 style="margin: 0">Name</h2>
+          <h2 style="margin: 0">Suck</h2>
           <p style="margin: 0" id="demo"></p>
-          <button onclick="myFunction()" class="add">+ Add card</button>
+          <button onclick="showModal()" class="add">+ Add card</button>
         </div>
         <div class="list">
-          <h2 style="margin: 0">Name</h2>
+          <h2 style="margin: 0">Done x</h2>
           <p style="margin: 0" id="demo"></p>
-          <button onclick="myFunction()" class="add">+ Add card</button>
+          <button onclick="showModal()" class="add">+ Add card</button>
         </div>
       </div>
     </div>
-    <div class="popup" id="popup1">
-      <div class="overlay"></div>
-      <div class="content">
-        <div class="close-btn">&times;</div>
-        <h1>Add Task</h1>
-        <h2 class="title">Title</h2>
-        <input class="input" type="Title" />
-        <h2 class="title">Description</h2>
-        <input class="input" type="Title" />
-        <h2 class="title">Status</h2>
-        <input class="input" type="Title" />
-        <h2 class="title">Priority</h2>
-        <input class="input" type="Title" />
-        <div class="add-task">
-          <button style="width: 264px; height: 40px; margin-top: 30px; background-color: black; color: red">Add Task</button>
+
+    <!-- ====================TASK====================== -->
+    <div class="modal" id="createModal">
+      <div class="popup">
+        <div class="content">
+          <button class="close-btn" onclick="hideModal()">&times;</button>
+
+          <h1>Add Task</h1>
+          <h2 class="title">Title</h2>
+          <input class="input" type="Title" />
+          <h2 class="title">Description</h2>
+          <input class="inputd" type="Title" />
+          <h2 class="title">Status</h2>
+          <select style="width: 265px; height: 30px" name="select">
+            <option value="">To Do</option>
+            <option value="">Medium</option>
+            <option value="">Height</option>
+          </select>
+          <h2 class="title">Priority</h2>
+          <select style="width: 265px; height: 30px" name="select">
+            <option value="">Low</option>
+            <option value="">Medium</option>
+            <option value="">Height</option>
+          </select>
+          <div class="add-task">
+            <button style="width: 264px; height: 40px; margin-top: 30px; background-color: black; color: red">Add Task</button>
+          </div>
         </div>
       </div>
     </div>

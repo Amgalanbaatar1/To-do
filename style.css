@@ -29,7 +29,7 @@ body {
   font-size: 15px;
   font-family: sans-serif;
   font-weight: 300;
-  margin-top: 33px;
+  margin-top: 54px;
   border-radius: 12px;
   background-color: red;
 }
@@ -37,29 +37,48 @@ body {
 .popup {
   color: white;
   border: 3px solid red;
+  background-color: #222;
   border-radius: 13px;
   width: 430px;
-  height: 555px;
+  height: 630px;
   align-items: center;
   display: flex;
   justify-content: center;
-  /* display: none;
- */
+  margin: auto;
+  margin-top: 200px;
 }
 .title {
   margin-top: 0;
   font-weight: 300;
+  margin-bottom: 0;
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .input {
   width: 16pc;
   height: 20px;
 }
+.inputd {
+  width: 257px;
+  height: 100px;
+}
+.content {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
 
-/* .popup.close-btn {
-  position: absolute;
-  right: 20px;
-  top: 20px;
+.close-btn {
+  position: relative;
+  right: -302px;
+  top: -7px;
   width: 30px;
   height: 30px;
   background-color: #222;
@@ -69,15 +88,5 @@ body {
   line-height: 30px;
   text-align: center;
   border-radius: 50px;
+  border: 1px solid red;
 }
-
-.popup.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0, 7);
-  z-index: 1;
-  display: none;
-} */
