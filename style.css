@@ -12,6 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 90px;
+  align-items: flex-start;
 
   /* margin-top: 20%; */
 }
@@ -20,18 +21,55 @@ body {
   border: 3px solid black;
   border-radius: 12px;
   width: 350px;
-  height: 100px;
   padding: 10px;
   background-color: rgb(120, 120, 120);
+}
+
+.addedList {
+  border-radius: 12px;
+  width: 320px;
+  height: 100px;
+  background-color: #fff;
+  margin-bottom: 5px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+@media (max-width: 679px) {
+  .lists {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 15px;
+  }
+  .list {
+    border: 3px solid black;
+    border-radius: 12px;
+    width: 87%;
+    height: 100px;
+    padding: 10px;
+    background-color: rgb(120, 120, 120);
+  }
 }
 
 .add {
   font-size: 15px;
   font-family: sans-serif;
-  font-weight: 300;
-  margin-top: 54px;
+  font-weight: 600;
+  margin-top: 45px;
   border-radius: 12px;
-  background-color: red;
+  color: red;
+}
+
+.add:hover {
+  border: 1px solid black;
+  width: 200px;
+  height: 30px;
+  background-color: #222;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .popup {
@@ -84,9 +122,6 @@ body {
   background-color: #222;
   color: #fff;
   font-size: 25px;
-  font-weight: 600;
-  line-height: 30px;
-  text-align: center;
   border-radius: 50px;
   border: 1px solid red;
 }

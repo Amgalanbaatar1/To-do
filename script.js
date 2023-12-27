@@ -19,3 +19,19 @@ function displayDate() {
 window.onload = function () {
   displayDate();
 };
+
+function addTask() {
+  const title = document.getElementById("titleInput").value;
+  const des = document.getElementById("description").value;
+
+  const taskHTML = ` <div class="addedList">${title} </br>${des}</div>`;
+
+  const todoElment = document.getElementById("todoTasks");
+
+  todoElment.innerHTML = todoElment.innerHTML + taskHTML;
+
+  hideModal();
+
+  document.getElementById("titleInput").value = "";
+  document.getElementById("description").value = "";
+}
