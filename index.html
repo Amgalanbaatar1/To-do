@@ -3,49 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/492ebb687c.js" crossorigin="anonymous"></script>
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <script src="script.js"></script>
+  <script src="https://kit.fontawesome.com/492ebb687c.js" crossorigin="anonymous"></script>
   <body>
     <div class="containder">
       <h1 style="font-family: sans-serif; color: red; margin-left: 50px">To Do List</h1>
       <h1><span id="date"></span></h1>
       <div class="lists">
+        <!-- =================LIST 1============= -->
         <div class="list">
           <h2 style="margin: 0">To Do</h2>
           <div id="todoTasks">
-            <i class="fa-regular fa-circle-check"></i>
-            <div class="addedList">
-              To Do
-              <i class="fa-regular fa-circle-xmark"></i>
-              <p>
-                This is to Do card
-                <i class="fa-solid fa-pen-to-square"></i>
-              </p>
-
-              <button>high</button>
-            </div>
+            <!-- auto generated -->
           </div>
-          <p style="margin: 0" id="demo"></p>
-          <div onclick="showModal()" class="add">+ Add card</div>
+          <div onclick="showModal('todoTasks')" class="add">+ Add card</div>
         </div>
-
+        <!-- =================LIST 2============= -->
         <div class="list">
           <h2 style="margin: 0">In Progress</h2>
-          <p style="margin: 0" id="demo"></p>
-          <div onclick="showModal()" class="add">+ Add card</div>
+          <div id="progressTasks">
+            <!-- auto generated -->
+          </div>
+
+          <div onclick="showModal('progressTasks')" class="add">+ Add card</div>
         </div>
+        <!-- =================LIST 3============= -->
         <div class="list">
-          <h2 style="margin: 0">Suck</h2>
-          <p style="margin: 0" id="demo"></p>
-          <div onclick="showModal()" class="add">+ Add card</div>
+          <h2 style="margin: 0">Stuck</h2>
+          <div id="stuckTasks">
+            <!-- auto generated -->
+          </div>
+
+          <div onclick="showModal('stuckTasks')" class="add">+ Add card</div>
         </div>
+        <!-- =================LIST 4============= -->
         <div class="list">
-          <h2 style="margin: 0">Done x</h2>
-          <p style="margin: 0" id="demo"></p>
-          <div onclick="showModal()" class="add">+ Add card</div>
+          <h2 style="margin: 0">Done</h2>
+          <div id="doneTasks">
+            <!-- auto generated -->
+          </div>
+
+          <div onclick="showModal('doneTasks')" class="add">+ Add card</div>
         </div>
       </div>
     </div>
@@ -60,19 +61,27 @@
           <input id="titleInput" placeholder="Title" class="input" type="Title" />
           <label for="description" class="title">Description</label>
           <textarea id="description" class="inputd" placeholder="Description" type="Title"></textarea>
-          <h2 class="title">Status</h2>
-          <select style="width: 265px; height: 30px" name="select">
-            <option value="">To Do</option>
-            <option value="">In progress</option>
-            <option value="">Stuck</option>
-            <option value="">Done</option>
-          </select>
-          <h2 class="title">Priority</h2>
-          <select style="width: 265px; height: 30px" name="select">
-            <option value="">Low</option>
-            <option value="">Medium</option>
-            <option value="">Height</option>
-          </select>
+
+          <div>
+            <label for="status">Status</label>
+            <br />
+            <select style="width: 265px; height: 30px" id="status">
+              <option value="todoTasks">To Do</option>
+              <option value="progressTasks">In progress</option>
+              <option value="stuckTasks">Stuck</option>
+              <option value="doneTasks">Done</option>
+            </select>
+          </div>
+          <div>
+            <label for="taskPriority">Priority</label>
+            <br />
+            <select style="width: 265px; height: 30px" id="taskPriority">
+              <option>Low</option>
+              <option>Medium</option>
+              <option>high</option>
+            </select>
+          </div>
+
           <div class="add-task">
             <button onclick="addTask()" id="addTask" style="width: 264px; height: 40px; margin-top: 30px; background-color: black; color: red">Add Task</button>
           </div>
