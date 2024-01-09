@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .lists {
+        background-color: bisque;
+        max-width: 400px;
+        margin: 0 auto;
+        border-radius: 12px;
+        padding: 20px;
+      }
+
+      .list {
+        background-color: beige;
+        border: 1px solid black;
+        margin-top: 20px;
+        height: 40px;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      h2 {
+        margin: 0;
+      }
+      button {
+        margin-top: 20px;
+      }
+      .task {
+        background-color: beige;
+        border: 1px solid black;
+        margin-top: 20px;
+        height: 40px;
+        border-radius: 5px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+    <div class="lists">
+      <h2>To DO list</h2>
+
+      <div class="tasks" id="tasksElments">
+        <!-- AUTO GENERATED -->
+      </div>
+      <button onclick="addTask()">Add task</button>
+    </div>
+
+    <script>
+      const tasks = [];
+      //   { name: "shalaa ugaah" }, { name: "ayga ugaah" }, { name: "huvtsas ugaah" }
+
+      function render() {
+        let taskHTML = ``;
+        let index = 0;
+        while (tasks.length > index) {
+          taskHTML =
+            taskHTML +
+            `   <div class="task">
+                  <span onclick="editTask(${index});">${tasks[index].name}</span>
+                  <button onclick="removeTask(${index})">&times;</button>
+                </div>                                           `;
+          index++;
+        }
+        document.getElementById("tasksElments").innerHTML = taskHTML;
+      }
+
+      function addTask() {
+        const name = prompt("Task name");
+        tasks.push({ name: name });
+        render();
+      }
+      function removeTask(deleteIndex) {
+        const deleteConfirmed = confirm("Ustgah uu?");
+        if (deleteConfirmed) {
+          tasks.splice(deleteIndex, 1);
+          render();
+        }
+      }
+      render();
+    </script>
+  </body>
+</html>
