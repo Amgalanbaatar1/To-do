@@ -74,17 +74,7 @@ function renderTasks() {
   let doneResult = "";
 
   tasks.sort((a1, a2) => {
-    const priorityNumbers = {
-      low: 1,
-      medium: 2,
-      high: 3,
-    };
-
-    if (priorityNumbers[a1.priority] > priorityNumbers[a2.priority]) {
-      return 1;
-    } else {
-      return -1;
-    }
+    return a1.position - a2.position;
   });
 
   for (let k = 0; k < tasks.length; k++) {

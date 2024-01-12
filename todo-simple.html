@@ -4,75 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="todo-simple.css" />
   </head>
+
   <body>
-    <style>
-      .lists {
-        background-color: bisque;
-        max-width: 400px;
-        margin: 0 auto;
-        border-radius: 12px;
-        padding: 20px;
-      }
-
-      .list {
-        background-color: beige;
-        border: 1px solid black;
-        margin-top: 20px;
-        height: 40px;
-        border-radius: 5px;
-        padding: 10px;
-      }
-      h2 {
-        margin: 0;
-      }
-      button {
-        margin-top: 20px;
-      }
-      .task {
-        background-color: beige;
-        border: 1px solid black;
-        margin-top: 20px;
-        height: 40px;
-        border-radius: 5px;
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-      }
-    </style>
-    <div class="lists">
-      <h2>To DO list</h2>
-
-      <div class="tasks" id="tasksElments">
-        <!-- AUTO GENERATED -->
+    <div class="list">
+      <h2>Todo List</h2>
+      <div class="tasks" id="taskElments">
+        <!-- <div class="task" id="taskElments">Shalaa ugaah</div> -->
       </div>
-      <button onclick="addTask()">Add task</button>
+      <button onclick="addTask()" class="addCard">+ Add task</button>
     </div>
-
     <script>
-      const tasks = [];
-      //   { name: "shalaa ugaah" }, { name: "ayga ugaah" }, { name: "huvtsas ugaah" }
+      const tasks = [
+        {
+          name: "Shalaa ugaah",
+          status: "todo",
+        },
+        {
+          name: "Ayga ugaah",
+          status: "completed",
+        },
+        {
+          name: "toosoo archih",
+          status: "todo",
+        },
+      ];
 
       function render() {
-        let taskHTML = ``;
-        let index = 0;
-        while (tasks.length > index) {
-          taskHTML =
-            taskHTML +
-            `   <div class="task">
-                  <span onclick="editTask(${index});">${tasks[index].name}</span>
-                  <button onclick="removeTask(${index})">&times;</button>
-                </div>                                           `;
-          index++;
-        }
-        document.getElementById("tasksElments").innerHTML = taskHTML;
+        const taskHTML = tasks
+          .map((task, index) => {
+            return ` <div class="task task-${task.status}">
+              <input type="checkbox" ${task.status === "completed" ? "checked" : ""} onclick="changeStatus(${index},'${task.status == "completed" ? "todo" : "completed"}')"/>
+                  <span style="flex:1" onclick="editTask(${index});">${task.name}</span>
+                   <p onclick="removeTask(${index})" class="material-symbols-outlined">
+                     delete
+                    </p>
+             </div>`;
+          })
+          .join("");
+        document.getElementById("taskElments").innerHTML = taskHTML;
       }
 
       function addTask() {
-        const name = prompt("Task name");
-        tasks.push({ name: name });
-        render();
+        const name = prompt("Task Name:");
+
+        if (name == null) return;
+        if (name == "") {
+          alert("utga oruulna uu?");
+        } else {
+          tasks.push({ name: name });
+          render();
+        }
       }
+
       function removeTask(deleteIndex) {
         const deleteConfirmed = confirm("Ustgah uu?");
         if (deleteConfirmed) {
@@ -80,6 +66,21 @@
           render();
         }
       }
+
+      function editTask(editIndex) {
+        const newName = prompt("Name", tasks[editIndex].name);
+        if (newName != null) {
+          tasks[editIndex].name = newName;
+          render();
+        }
+      }
+
+      function changeStatus(index, status) {
+        tasks[index].status = status;
+        console.log(index, status);
+        render();
+      }
+
       render();
     </script>
   </body>

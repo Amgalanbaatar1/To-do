@@ -1,0 +1,54 @@
+.list {
+  background-color: #282828;
+  color: white;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: 1px solid red;
+}
+
+.task {
+  background-color: #505050;
+  border-radius: 2px;
+  margin-top: 20px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addCard {
+  margin-top: 10px;
+  background-color: #280000;
+  color: white;
+  width: 100px;
+  height: 30px;
+  border-radius: 12px;
+}
+
+h2 {
+  text-align: center;
+}
+.task > span {
+  cursor: pointer;
+}
+
+.task-completed > span {
+  text-decoration: line-through;
+}
+/* .task-todo {
+  text-decoration: line-through;
+} */
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-todo {
+  order: 1;
+}
+.task-completed {
+  order: 2;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html {
+        background-color: antiquewhite;
+      }
+      h2 {
+        margin: 0 0 10px;
+      }
+      .list {
+        background-color: white;
+        max-width: 400px;
+        padding: 10px;
+        border-radius: 20px;
+        margin: 0 auto;
+      }
+      .task {
+        background-color: bisque;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .task > span {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="list">
+      <h2>Todo list</h2>
+      <div class="tasks" id="tasksElement">
+        <!-- generated -->
+      </div>
+      <button onclick="addTask();">Add task</button>
+    </div>
+
+    <script>
+      const tasks = [
+        {
+          name: "Shalaa ugaah1111",
+        },
+        {
+          name: "Ayga ugaah",
+        },
+        {
+          name: "toosoo archih",
+        },
+      ];
+
+      function render() {
+        let taskHTML = ``;
+        let index = 0;
+        while (tasks.length > index) {
+          taskHTML =
+            taskHTML +
+            `
+                <div class="task">
+                  <span onclick="editTask(${index});">${tasks[index].name}</span>
+                  <button onclick="removeTask(${index});">x</button>
+                </div>`;
+          index = index + 1;
+        }
+        document.getElementById("tasksElement").innerHTML = taskHTML;
+      }
+
+      function addTask() {
+        const name = prompt("Task name:");
+        tasks.push({ name: name });
+        render();
+      }
+
+      function removeTask(deleteIndex) {
+        const deleteConfirmed = confirm("Usgah uu?");
+        if (deleteConfirmed) {
+          tasks.splice(deleteIndex, 1);
+          render();
+        }
+      }
+
+      function editTask(editIndex) {
+        const newName = prompt("Name", tasks[editIndex].name);
+        if (newName != null) {
+          tasks[editIndex].name = newName;
+          render();
+        }
+      }
+
+      render();
+    </script>
+  </body>
+</html>
